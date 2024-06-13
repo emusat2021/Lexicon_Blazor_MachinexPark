@@ -24,7 +24,16 @@
                 <tr>
                     <td>@machine.MachineId</td>
                     <td>@machine.MachineName</td>
-                    <td>@machine.MachineStatus</td>
+                    <td>
+                        @if (@machine.MachineStatus)
+                        {
+                        <span class="badge bg-success text-wrap" style="width: 10rem">Online</span>
+                        }
+                        else
+                        {
+                            <span class="badge bg-warning text-dark" style="width: 10rem">Offline</span>
+                        }
+                    </td>
                     <td>@machine.LatestDateFromMachine.ToString()</td>
                     <td>
                         <a href="@($"machinedetails/{machine.MachineId}")" class="btn btn-outline-primary">
