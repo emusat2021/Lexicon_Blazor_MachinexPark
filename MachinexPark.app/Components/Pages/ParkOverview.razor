@@ -26,6 +26,11 @@
                     <td>@machine.MachineName</td>
                     <td>@machine.MachineStatus</td>
                     <td>@machine.LatestDateFromMachine.ToString()</td>
+                    <td>
+                        <a href="@($"machinedetails/{machine.MachineId}")" class="btn btn-outline-primary">
+                            Details
+                        </a>
+                    </td>
                 </tr>
             }
 
@@ -44,10 +49,9 @@
         public List<Type> Widgets { get; set; } = new List<Type>() { typeof(MachineCountWidget) };
 
 
-        protected async override Task OnInitializedAsync()
+        protected override void OnInitialized()
         {
             Machines = MockDataServices.Machines;
-
         }
 
 
