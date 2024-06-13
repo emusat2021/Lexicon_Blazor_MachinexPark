@@ -7,13 +7,13 @@
 <h3>Machine Details</h3>
 
 <h1 class="page-item">
-    Details for Machine : @Machine.MachineName
+    Details for Machine : <span style="background-color: greenyellow">@Machine.MachineName</span>
 </h1>
 <div class="">
     @if(Machine.MachineStatus)
     {
         <div>
-            <span class="badge bg-primary text-wrap" style="width: 6rem">
+            <span class="badge bg-success text-wrap" style="width: 10rem">
                 Online
             </span>
         </div>
@@ -21,14 +21,14 @@
     else
     {
         <div>
-            <span class="badge bg-primary text-wrap" style="width: 6rem">
+            <span class="badge bg-warning text-dark" style="width: 10rem">
                 Offline
             </span>
         </div>
     }
 
     <div class="mt-2">
-        <button type="button" class="btn btn-online-primary me-1" @onclick="ChangeMachineStatus"> Change Machine Status</button>
+        <button type="button" class="btn btn-primary" @onclick="ChangeMachineStatus"> Change Machine Status</button>
     </div>
 </div>
 
@@ -36,11 +36,14 @@
 @code {
     [Parameter]
     public int MachineId { get; set; }
+
     public Machine Machine { get; set; } = new Machine();
+
     protected override void OnInitialized()
     {
         Machine = MockDataServices.Machines.Single(m => m.MachineId == MachineId);
     }
+
     private void ChangeMachineStatus()
     {
         Machine.MachineStatus = !Machine.MachineStatus;
