@@ -39,7 +39,14 @@ namespace MachinexPark.app.Services
                 MachineStatus = false,
                 LatestDateFromMachine = new DateTime(2024, 6, 11),
             };
-            return new List<Machine> { m1, m2, m3 };
+            var m4 = new Machine
+            {
+                MachineId = 4,
+                MachineName = "Industrial Robotic Arm",
+                MachineStatus = false,
+                LatestDateFromMachine = new DateTime(2024, 6, 11),
+            };
+            return new List<Machine> { m1, m2, m3, m4 };
         }
     }
 }
